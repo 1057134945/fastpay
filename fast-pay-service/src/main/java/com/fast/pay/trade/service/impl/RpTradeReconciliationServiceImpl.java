@@ -133,7 +133,6 @@ public class RpTradeReconciliationServiceImpl implements RpTradeReconciliationSe
 	 * @param baseOnBank
 	 *            是否以银行为准
 	 */
-
 	@Transactional(rollbackFor = Exception.class)
 	public void handleAmountMistake(RpAccountCheckMistake mistake, boolean isBankMore) {
 
@@ -205,7 +204,6 @@ public class RpTradeReconciliationServiceImpl implements RpTradeReconciliationSe
 	 * 
 	 * @param mistake
 	 */
-
 	@Transactional(rollbackFor = Exception.class)
 	public void handleFeeMistake(RpAccountCheckMistake mistake) {
 

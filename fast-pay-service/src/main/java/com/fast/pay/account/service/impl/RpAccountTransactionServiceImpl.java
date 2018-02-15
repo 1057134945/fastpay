@@ -352,7 +352,6 @@ public class RpAccountTransactionServiceImpl implements RpAccountTransactionServ
 	 * @param remark
 	 *            备注
 	 */
-
 	@Transactional(rollbackFor = Exception.class)
 	public RpAccount unFreezeSettAmount(String userNo, BigDecimal amount) {
 		RpAccount account = this.getByUserNo_IsPessimist(userNo, true);

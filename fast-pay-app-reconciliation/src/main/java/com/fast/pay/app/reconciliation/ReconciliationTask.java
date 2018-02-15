@@ -15,11 +15,6 @@
  */
 package com.fast.pay.app.reconciliation;
 
-import java.io.File;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.List;
-
 import com.fast.pay.app.reconciliation.biz.ReconciliationCheckBiz;
 import com.fast.pay.app.reconciliation.biz.ReconciliationFileDownBiz;
 import com.fast.pay.app.reconciliation.biz.ReconciliationFileParserBiz;
@@ -27,15 +22,19 @@ import com.fast.pay.app.reconciliation.biz.ReconciliationValidateBiz;
 import com.fast.pay.app.reconciliation.utils.DateUtil;
 import com.fast.pay.app.reconciliation.utils.SpringContextUtil;
 import com.fast.pay.app.reconciliation.vo.ReconciliationInterface;
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
-
 import com.fast.pay.reconciliation.entity.RpAccountCheckBatch;
 import com.fast.pay.reconciliation.enums.BatchStatusEnum;
 import com.fast.pay.reconciliation.service.RpAccountCheckBatchService;
 import com.fast.pay.reconciliation.vo.ReconciliationEntityVo;
 import com.fast.pay.user.service.BuildNoService;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import java.io.File;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.List;
 
 /**
  * 对账处理(包括下载对账文件、转换对账文件、对账) .
@@ -81,14 +80,14 @@ public class ReconciliationTask {
 				String interfaceCode = reconciliationInter.getInterfaceCode();
 
 				/** step1:判断是否对过账 **/
-				RpAccountCheckBatch batch = new RpAccountCheckBatch();
 				Boolean checked = validateBiz.isChecked(interfaceCode, billDate);
 				if (checked) {
 					LOG.info("账单日[" + sdf.format(billDate) + "],支付方式[" + interfaceCode + "],已经对过账，不能再次发起自动对账。");
 					continue;
 				}
 				// 创建对账批次
-				batch.setCreater("reconciliationSystem");
+                RpAccountCheckBatch batch = new RpAccountCheckBatch();
+                batch.setCreater("reconciliationSystem");
 				batch.setCreateTime(new Date());
 				batch.setBillDate(billDate);
 				batch.setBatchNo(buildNoService.buildReconciliationNo());

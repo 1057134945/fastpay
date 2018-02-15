@@ -4,43 +4,43 @@
 /*==============================================================*/
 
 
-drop table if exists rp_account;
+drop table if exists rp_account; /* get */
 
-drop table if exists rp_account_history;
+drop table if exists rp_account_history; /* get */
 
-drop table if exists rp_pay_product;
+drop table if exists rp_pay_product; /* get */
 
-drop table if exists rp_pay_way;
+drop table if exists rp_pay_way; /* get */
 
-drop table if exists rp_sett_daily_collect;
+drop table if exists rp_sett_daily_collect; /* get */
 
-drop table if exists rp_sett_record;
+drop table if exists rp_sett_record; /* get */
 
-drop table if exists rp_sett_record_annex;
+drop table if exists rp_sett_record_annex; /* get */
 
 drop table if exists rp_user_bank_account;
 
-drop table if exists rp_user_info;
+drop table if exists rp_user_info; /* get */
 
-drop table if exists rp_user_pay_config;
+drop table if exists rp_user_pay_config; /* get */
 
 drop table if exists rp_user_pay_info;
 
-drop table if exists rp_account_check_batch;
+drop table if exists rp_account_check_batch; /* get */
 
-drop table if exists rp_account_check_mistake;
+drop table if exists rp_account_check_mistake; /* get */
 
-drop table if exists rp_account_check_mistake_scratch_pool;
+drop table if exists rp_account_check_mistake_scratch_pool; /* get */
 
-drop table if exists rp_notify_record;
+drop table if exists rp_notify_record; /* get */
 
-drop table if exists rp_notify_record_log;
+drop table if exists rp_notify_record_log; /* get */
 
 drop table if exists rp_refund_record;
 
-drop table if exists rp_trade_payment_order;
+drop table if exists rp_trade_payment_order; /* get */
 
-drop table if exists rp_trade_payment_record;
+drop table if exists rp_trade_payment_record; /* get */
 
 drop table if exists seq_table;
 
@@ -69,7 +69,7 @@ create table rp_account
    primary key (id)
 );
 
-alter table rp_account comment '资金账户表';
+alter table rp_account comment '资金账户表'; /* get */
 
 /*==============================================================*/
 /* table: rp_account_history                                    */
@@ -95,7 +95,7 @@ create table rp_account_history
    primary key (id)
 );
 
-alter table rp_account_history comment '资金账户流水表';
+alter table rp_account_history comment '资金账户流水表'; /* get */
 
 /*==============================================================*/
 /* table: rp_pay_product                                        */
@@ -113,7 +113,7 @@ create table rp_pay_product
    primary key (id)
 );
 
-alter table rp_pay_product comment '支付产品表';
+alter table rp_pay_product comment '支付产品表'; /* get */
 
 /*==============================================================*/
 /* table: rp_pay_way                                            */
@@ -135,7 +135,7 @@ create table rp_pay_way
    primary key (id)
 );
 
-alter table rp_pay_way comment '支付方式';
+alter table rp_pay_way comment '支付方式'; /* get */
 
 /*==============================================================*/
 /* table: rp_sett_daily_collect                                 */
@@ -158,7 +158,7 @@ create table rp_sett_daily_collect
    primary key (id)
 );
 
-alter table rp_sett_daily_collect comment '每日待结算汇总';
+alter table rp_sett_daily_collect comment '每日待结算汇总'; /* get */
 
 /*==============================================================*/
 /* table: rp_sett_record                                        */
@@ -198,7 +198,7 @@ create table rp_sett_record
    primary key (id)
 );
 
-alter table rp_sett_record comment '结算记录';
+alter table rp_sett_record comment '结算记录'; /* get */
 
 /*==============================================================*/
 /* table: rp_sett_record_annex                                  */
@@ -288,7 +288,7 @@ create table rp_user_pay_config
    primary key (id)
 );
 
-alter table rp_user_pay_config comment '支付设置表';
+alter table rp_user_pay_config comment '支付设置表'; /* get */
 
 /*==============================================================*/
 /* table: rp_user_pay_info                                      */
@@ -348,7 +348,7 @@ create table rp_account_check_batch
    primary key (id)
 );
 
-alter table rp_account_check_batch comment '对账批次表 rp_account_check_batch';
+alter table rp_account_check_batch comment '对账批次表'; /* get */
 
 create table rp_account_check_mistake
 (
@@ -389,7 +389,7 @@ create table rp_account_check_mistake
    primary key (id)
 );
 
-alter table rp_account_check_mistake comment '对账差错表 rp_account_check_mistake';
+alter table rp_account_check_mistake comment '对账差错表'; /* get */
 
 create table rp_account_check_mistake_scratch_pool
 (
@@ -422,7 +422,7 @@ create table rp_account_check_mistake_scratch_pool
    bill_date            datetime
 );
 
-alter table rp_account_check_mistake_scratch_pool comment '差错暂存池';
+alter table rp_account_check_mistake_scratch_pool comment '差错暂存池'; /* get */
 
 create table rp_notify_record
 (
@@ -443,7 +443,7 @@ create table rp_notify_record
    key ak_key_2 (merchant_order_no)
 );
 
-alter table rp_notify_record comment '通知记录表 rp_notify_record';
+alter table rp_notify_record comment '通知记录表'; /* get */
 
 create table rp_notify_record_log
 (
@@ -462,7 +462,7 @@ create table rp_notify_record_log
    primary key (id)
 );
 
-alter table rp_notify_record_log comment '通知记录日志表 rp_notify_record_log';
+alter table rp_notify_record_log comment '通知记录日志表'; /* get */
 
 create table rp_refund_record
 (
@@ -547,7 +547,7 @@ create table rp_trade_payment_order
    unique key ak_key_2 (merchant_order_no, merchant_no)
 );
 
-alter table rp_trade_payment_order comment 'roncoo pay 龙果支付 支付订单表';
+alter table rp_trade_payment_order comment '支付订单表'; /* get */
 
 create table rp_trade_payment_record
 (
@@ -607,7 +607,7 @@ create table rp_trade_payment_record
    unique key ak_key_2 (trx_no)
 );
 
-alter table rp_trade_payment_record comment '支付记录表';
+alter table rp_trade_payment_record comment '支付记录表'; /* get */
 
 CREATE TABLE seq_table (SEQ_NAME varchar(50) NOT NULL, CURRENT_VALUE bigint DEFAULT '1000000002' NOT NULL, INCREMENT smallint DEFAULT '1' NOT NULL, REMARK varchar(100) NOT NULL, PRIMARY KEY (SEQ_NAME)) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 INSERT INTO seq_table (SEQ_NAME, CURRENT_VALUE, INCREMENT, REMARK) VALUES ('ACCOUNT_NO_SEQ', 10000000, 1, '账户--账户编号');

@@ -43,7 +43,7 @@ import java.util.*;
 public class FastPayController extends BaseController {
 
     @RequestMapping("/scanPay")
-    public String scanPay(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Model model) {
+    public String scanPay(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Model model)  {
         Map<String, Object> paramMap = new HashMap<String, Object>();
 
         String orderPriceStr = getString_UrlDecode_UTF8("orderPrice"); // 订单金额 , 单位:元

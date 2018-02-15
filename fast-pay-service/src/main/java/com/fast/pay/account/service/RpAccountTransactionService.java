@@ -15,11 +15,10 @@
  */
 package com.fast.pay.account.service;
 
-import java.math.BigDecimal;
-
-import com.fast.pay.account.entity.RpAccount;
 import com.fast.pay.account.entity.RpAccount;
 import com.fast.pay.common.core.exception.BizException;
+
+import java.math.BigDecimal;
 
 /**
  *  账户操作service接口
@@ -39,13 +38,13 @@ public interface RpAccountTransactionService {
 	RpAccount debitToAccount(String userNo, BigDecimal amount, String requestNo, String trxType, String remark) throws BizException;
 
 
-	/** 冻结 **/
+	/** 冻结 **/ // DONE
 	RpAccount freezeAmount(String userNo, BigDecimal freezeAmount) throws BizException;
 
-	/** 结算成功：解冻+减款 **/
+	/** 结算成功：解冻+减款 **/ // DONE
 	RpAccount unFreezeAmount(String userNo, BigDecimal amount, String requestNo, String trxType, String remark) throws BizException;
 	
-	/** 结算失败：解冻 **/
+	/** 结算失败：解冻 **/ // DONE
 	RpAccount unFreezeSettAmount(String userNo, BigDecimal amount) throws BizException;
 
 	/** 更新账户历史中的结算状态，并且累加可结算金额 **/

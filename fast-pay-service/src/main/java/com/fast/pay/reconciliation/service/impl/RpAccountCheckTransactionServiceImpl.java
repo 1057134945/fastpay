@@ -114,7 +114,7 @@ public class RpAccountCheckTransactionServiceImpl implements RpAccountCheckTrans
 		rpAccountCheckMistakeService.updateData(mistake);
 
 		Boolean bank = false;
-		if ("bank".equals(handleType.trim())) {
+		if ("bank".equals(handleType.trim())) { // TODO 芋艿，目前的理解是，也没办法找银行说。。
 			mistake.setHandleValue("以银行为准");
 			bank = true;
 		}

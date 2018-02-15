@@ -87,7 +87,7 @@ public class App
             public void run() {
                 try {
                     while (true) {
-                        Thread.sleep(50);//50毫秒执行一次
+                        Thread.sleep(50);//50毫秒执行一次 // TODO 芋艿，【优化点】这里相当于每来一个任务，就休息 50 ms，也就是可能 1 s，只能处理 20 个任务。
                         // 如果当前活动线程等于最大线程，那么不执行
                         if (threadPool.getActiveCount() < threadPool.getMaxPoolSize()) {
                             final NotifyTask task = tasks.poll();
